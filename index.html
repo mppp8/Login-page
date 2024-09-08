@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.9),
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.9)
+        );
+      }
+      .container {
+        position: relative;
+        width: 750px;
+        height: 450px;
+        background: linear-gradient(
+          45deg,
+          rgb(232, 8, 8),
+          rgb(210, 110, 129),
+          rgb(228, 104, 104)
+        );
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 25px 1px black;
+        border-radius: 30px;
+        overflow: hidden;
+      }
+      .container .form-box {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .form-box h2 {
+        font-size: 32px;
+        text-align: center;
+      }
+      .form-box .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin-top: 25px;
+      }
+      .form-box .login {
+        left: 0;
+        padding: 0px 40px;
+      }
+      .input-box input {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #fff;
+        font-weight: 600;
+        border-bottom: 2px solid black;
+        padding-right: 2px;
+        transition: 0.5s;
+      }
+      .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #fff;
+        transition: 0.5s;
+      }
+      .input-box input:focus ~ label,
+      .input-box input:valid ~ label {
+        top: -3px;
+        color: pink;
+      }
+      .input-box input:focus,
+      .input-box input:valid {
+        border-bottom: 2px solid pink;
+      }
+      .btn {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        background: transparent;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+        transition: 0.5s;
+      }
+      .btn:hover {
+        color: #fff;
+        box-shadow: 0px 0px 20px rgb(239, 235, 231);
+        border: none;
+        border-bottom: 5px solid #000;
+      }
+      .regi-link {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .regi-link a {
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 18px;
+        color: turquoise;
+        cursor: pointer;
+        text-transform: capitalize;
+        transition: 0.6s;
+      }
+      .regi-link a:hover {
+        text-decoration: underline;
+        color: rgb(154, 144, 9);
+      }
+      .info {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .info.Login {
+        right: 0;
+        text-align: right;
+        padding: 0px 40px 60px 150px;
+      }
+      .info h2 {
+        /* text-align:center;
+         position: absolute;
+         text-transform: uppercase;
+         top: 20%;
+         width: 0;
+         margin: 0px -15%;
+         font-size: 30px;
+         animation: typing 3s steps(22) forwards,blink 1s step-end infinite; */
+
+        font-size: 2em;
+        display: inline-block;
+        letter-spacing: 0.1em;
+        width: 40%;
+        margin: 0px -50%;
+        padding: auto auto;
+        transform: translateX(30%);
+        border-right: solid 3px black;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: type 2s linear 1s both, blink 2.5s normal both;
+      }
+      #mid {
+        position: absolute;
+        bottom: 10%;
+        right: 60%;
+        margin: 0px -50%;
+        width: 20%;
+        font-size: 26px;
+        display: inline;
+        background-color: transparent;
+        text-transform: capitalize;
+        animation: go .5s linear 2.9s both;
+        transform: translateX(-4%);
+      }
+      @keyframes go {
+        from {
+           
+          width: 0%;
+          display: flexbox;
+          transition: .5s;
+        }
+        to {
+          background: transparent;
+          width: 100%;
+          color: #fff;
+          transform: .5s;
+        }
+      }
+
+      @keyframes blink {
+        0% {
+          display: none;
+          background-color: rgb(206, 93, 184);
+        }
+        50% {
+          display: none;
+        }
+        100% {
+          display: block;
+        }
+        110% {
+          display: block;
+        }
+      }
+      @keyframes type {
+        0% {
+          width: 0;
+          color: rgba(0, 0, 0, 0.2);
+        }
+        20% {
+          width: 20%;
+          color: rgba(0, 0, 0, 0.5);
+        }
+        40% {
+          width: 40%;
+          color: rgba(0, 0, 0, 0.8);
+        }
+        60% {
+          width: 60%;
+          color: rgba(0, 0, 0, 1);
+        }
+        80% {
+          width: 80%;
+          color: rgba(255, 255, 255, 0.8);
+        }
+        100% {
+          width: 110%;
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+      .info p {
+        font-weight: 560;
+        font-size: 20px;
+        margin: 5px 4px;
+        text-align: center;
+        /* background-color: red; */
+      }
+
+      .container .curved {
+        position: absolute;
+        right: 0;
+        top: -5px;
+        height: 650px;
+        width: 850px;
+        background: linear-gradient(
+          45deg,
+          rgb(142, 10, 162),
+          rgb(167, 28, 125),
+          rgb(131, 165, 98)
+        );
+        transform: rotateY(-60deg) skew(-25deg);
+        transform-origin: bottom right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="curved"></div>
+      <div class="form-box login">
+        <h2>Sign Up</h2>
+        <form action="POST">
+          <div class="input-box">
+            <input type="text" required />
+            <label for="">Username</label>
+          </div>
+          <div class="input-box">
+            <input type="email" required />
+            <label for="">Email</label>
+          </div>
+
+          <div class="input-box">
+            <input type="password" required />
+            <label for="">Password</label>
+          </div>
+
+          <div class="input-box">
+            <button type="submit" class="btn">Login</button>
+          </div>
+
+          <div class="regi-link">
+            <p>
+              Don't have an account! <a href="Login.html" class="signup-link">sign In</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="info Login">
+        <h2 id="type">Hi Hello ,</h2>
+        <!-- <h2>deekshith</h2> -->
+        <h2>Sign Up</h2>
+        <p>Login to get started with new Content!</p>
+        <h2 id="mid">
+          Sign up to enjoy<br />
+          new features!!
+        </h2>
+        <p>Offer awaiting you!</p>
+      </div>
+    </div>
+  </body>
+</html>
